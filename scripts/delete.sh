@@ -1,0 +1,1 @@
+docker stop testpod && docker rm testpod

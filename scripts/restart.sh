@@ -1,0 +1,1 @@
+./scripts/delete.sh && ./scripts/build.sh && ./scripts/run.sh && ./scripts/exec.sh

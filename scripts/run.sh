@@ -1,0 +1,1 @@
+docker run -dit --name testpod --env-file local.env testpod

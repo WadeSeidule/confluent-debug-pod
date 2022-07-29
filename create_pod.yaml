@@ -1,0 +1,36 @@
+# 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: $POD_NAME
+spec:
+  containers:
+  - name: $CONTAINER_NAME
+    image: $DOCKER_IMAGE
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "500Mi"
+        cpu: "200m"
+    env:
+    - name: CONFLUENT_ENVIRONMENT_ID
+      value: $CONFLUENT_ENVIRONMENT_ID
+    - name: CONFLUENT_CLUSTER_ID
+      value: $CONFLUENT_CLUSTER_ID
+    - name: CONFLUENT_EMAIL
+      value: $CONFLUENT_EMAIL
+    - name: CONFLUENT_PASSWORD
+      value: $CONFLUENT_PASSWORD
+    - name: CONFLUENT_API_KEY
+      value: $CONFLUENT_API_KEY
+    - name: CONFLUENT_API_SECRET
+      value: $CONFLUENT_API_SECRET
+    # Hold this pod open for 24 hours
+    command: 
+    - sh
+    - -c
+    - echo The app is running! && sleep 86400
+  restartPolicy: Never
